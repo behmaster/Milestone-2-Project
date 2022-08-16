@@ -14,6 +14,9 @@ customer.post('/', async (req, res) => {});
 
 //UPDATE A CUSTOMER ID
 customer.put('/:id', async (req, res) => {});
+
 // DELETE A CUSTOMER ID
+customer.delete('/:id', async (req, res) => {});
 
 //EXPORT A CUSTOMER ID
+module.exports = customer;
