@@ -4,7 +4,7 @@ const db = require('../models');
 const { Inventory, Customer, Review, Transaction } = db;
 const { Op } = require('sequelize');
 
-//Get Inventory IDs
+//GET INVENTORY IDs
 inventory.get('/', async (req, res) => {});
 
 //FIND A SPECIFIC ITEM
