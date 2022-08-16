@@ -1,22 +1,23 @@
 //DEPENDENCIES
 const inventory = require('express').Router();
 const db = require('../models');
-const { Customer, Inventory, Review, Transaction } = db;
+const { Inventory, Customer, Review, Transaction } = db;
 const { Op } = require('sequelize');
 
-//FIND ALL CUSTOMER IDS
+//Get Inventory IDs
 inventory.get('/', async (req, res) => {});
-//FIND A SPECIFIC CUSTOMER ID
+
+//FIND A SPECIFIC ITEM
 inventory.get('/:customer_id', async (req, res) => {});
 
-//CREATE A CUSTOMER ID
+//CREATE AN ITEM IN THE INVENTORY
 inventory.post('/', async (req, res) => {});
 
-//UPDATE A CUSTOMER ID
+//UPDATE AN ITEM IN THE INVENTORY
 inventory.put('/:id', async (req, res) => {});
 
-// DELETE A CUSTOMER ID
+// DELETE AN ITEM
 inventory.delete('/:id', async (req, res) => {});
 
-//EXPORT A CUSTOMER ID
+//EXPORT AN ITEM
 module.exports = inventory;
