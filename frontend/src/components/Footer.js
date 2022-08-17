@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <Row>
           {/* py = padding on the y axis, &copy; creates teh copyright symbol */}
-          <Col className='text-center py-3'>Copyright &copy; Proshop</Col>
+          <Col className='text-center py-3'>Copyright &copy; RAJH Frames</Col>
         </Row>
       </Container>
     </footer>
