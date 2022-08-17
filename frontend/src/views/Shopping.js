@@ -11,7 +11,9 @@ function App() {
   return (
     <div>
       <Navbar />
-    <h1>Welcome Page</h1>
+      <ProductGrid />
+      <Footer />
+      <Rating />
     </div>
   )
 }
