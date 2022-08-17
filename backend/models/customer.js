@@ -1,58 +1,31 @@
-'use-strict'
-const sequelize = require('sequelize');
-const { Model } = require('sequelize');
-
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class Customer extends Model {
-        static associate({ Rating }) {
-            Customer.hasMany(Rating, {
-                foreignKey: 'customer_id'
-            })
-        }
+  class customer extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-}
-
-Customer.init({
-    customer_id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    first_name: {
-        type: DataTypes.STRING(20),
-        allowNull: false
-    },
-    last_name: {
-        type: DataTypes.STRING(20),
-        allowNull: false
-    },
-    address: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    },
-    city: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
-    },
-    state: {
-        type: DataTypes.STRING(20),
-        allowNull: false
-    },
-    zip: {
-        type: DataTypes.STRING(10),
-        allowNull: false
-    },
-    phone_number: {
-        type: DataTypes.STRING(10),
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    }
-}, {
+  }
+  customer.init({
+    customer_id: DataTypes.INTEGER,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    address: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    email: DataTypes.STRING
+  }, {
     sequelize,
-    modelName: 'Customer',
-    tableName: 'customers',
-    timestamps: false
-})
+    modelName: 'customer',
+  });
+  return customer;
+};
