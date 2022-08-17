@@ -1,19 +1,21 @@
-import React from 'react';
-import Navbar from './components/Navbar'
+import React from 'react'
+import { Container } from 'react-bootstrap'
+import Header from './components/Header'
 import Footer from './components/Footer'
-import Product from './components/ProductGrid'
-import Rating from './components/Rating'
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css'
- 
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Navbar />
-    <h1>Welcome Page</h1>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Container>
+          <h1> Welcome to RAJH Frames</h1>
+        </Container>
+      </main>
+
+      <Footer />
+    </>
   )
 }
 
-export default App;
+export default App
