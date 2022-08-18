@@ -15,7 +15,7 @@ const Developer = (props) => {
         </a>
       </Card.Body>
 
-      <Card.Text as='div>'></Card.Text>
+      <Card.Text as='div'></Card.Text>
     </Card>
   )
 }
