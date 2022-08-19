@@ -15,7 +15,7 @@ const developers = [
   {
     _id: '3',
     name: 'Jenni',
-    image: '/images/jenni.jpg ',
+    image: '/images/jenni4.jpg ',
     description: '',
   },
   {

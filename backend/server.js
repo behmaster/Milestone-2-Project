@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const { Sequalize } = require('sequalize');
+const { Sequelize } = require('sequelize')
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config();
@@ -25,7 +25,7 @@ app.use('/inventory', inventoryController);
 const reviewController = require('./controllers/review_controller');
 app.use('/review', reviewController);
 
-const transactionController = require('./controllers/transactionController');
+const transactionController = require('./controllers/transaction_Controller');
 app.use('/transaction', transactionController);
 
 // LISTEN
