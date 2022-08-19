@@ -3,6 +3,9 @@ import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HomeScreen from './views/HomeScreen'
+import Rating from './components/Rating'
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.css'
  
 
 const App = () => {
