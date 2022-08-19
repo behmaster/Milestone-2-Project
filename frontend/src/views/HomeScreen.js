@@ -8,11 +8,11 @@ import developers from '../developers'
 const HomeScreen = () => {
   return (
     <>
-      <h1>Your Developers</h1>
+      <h1>Your Developer</h1>
       <Row>
         {developers.map((developer) => (
           // number of columns per screen
-          <Col sm={12} md={6} lg={4} xl={3}>
+          <Col key ={developer._id} sm={12} md={6} lg={4} xl={3}>
             <Developer developer={developer}/>
           </Col>
         ))}
