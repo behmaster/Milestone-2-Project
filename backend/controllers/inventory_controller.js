@@ -5,10 +5,16 @@ const { Inventory, Customer, Review, Transaction } = db;
 const { Op } = require('sequelize');
 
 //GET INVENTORY IDs
-inventory.get('/', async (req, res) => {});
+inventory.get('/', async (req, res) => {
+	res.render('');
+});
 
 //FIND A SPECIFIC ITEM
-inventory.get('/:customer_id', async (req, res) => {});
+
+inventory.get('/:product_id', async (req, res) => {
+	console.log(req.params);
+	res.send('product id route');
+});
 
 //CREATE AN ITEM IN THE INVENTORY
 inventory.post('/', async (req, res) => {});
