@@ -31,6 +31,6 @@ app.use('/transaction', transactionController);
 // LISTEN
 app.listen(process.env.PORT, () => {
 	console.log(
-		'Because you now have clear vision, you can now see that we are on port: ${process.env.PORT}'
+		`Because you now have clear vision, you can now see that we are on port: ${process.env.PORT}`
 	);
 });
