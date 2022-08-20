@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const { Sequalize } = require('sequalize');
+const { Sequelize } = require('sequelize');
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config();
@@ -25,12 +25,12 @@ app.use('/inventory', inventoryController);
 const reviewController = require('./controllers/review_controller');
 app.use('/review', reviewController);
 
-const transactionController = require('./controllers/transactionController');
+const transactionController = require('./controllers/transaction_Controller');
 app.use('/transaction', transactionController);
 
 // LISTEN
 app.listen(process.env.PORT, () => {
 	console.log(
-		'Because you now have clear vision, you can now see that we are on port: ${process.env.PORT}'
+		`Because you now have clear vision, you can now see that we are on port: ${process.env.PORT}`
 	);
 });
