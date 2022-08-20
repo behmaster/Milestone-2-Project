@@ -1,7 +1,9 @@
 // DEPENDENCIES
 const express = require('express');
+const { Client } = require('pg');
 const app = express();
 const { Sequelize } = require('sequelize');
+const db = require('./models');
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config();
@@ -15,7 +17,9 @@ app.get('/', (req, res) => {
 	});
 });
 
-// CONTROLLERS
+ 
+
+// // CONTROLLERS
 const customerController = require('./controllers/customer_controller');
 app.use('/customer', customerController);
 
@@ -25,9 +29,12 @@ app.use('/inventory', inventoryController);
 const reviewController = require('./controllers/review_controller');
 app.use('/review', reviewController);
 
-const transactionController = require('./controllers/transaction_Controller');
-app.use('/transaction', transactionController);
+// const transactionController = require('./controllers/transaction_Controller');
+// app.use('/transaction', transactionController);
 
+app.get('*', (req, res) => {
+  res.send('404')
+})
 // LISTEN
 app.listen(process.env.PORT, () => {
 	console.log(

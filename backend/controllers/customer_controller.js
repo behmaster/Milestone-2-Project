@@ -1,22 +1,38 @@
 //DEPENDENCIES
-const customer = require('express').Router();
+const customers = require('express').Router();
 const db = require('../models');
-const { Customer, Inventory, Review, Transaction } = db;
+const { Customer} = db;
 const { Op } = require('sequelize');
 
 //FIND ALL CUSTOMER IDS
-customer.get('/', async (req, res) => {});
-//FIND A SPECIFIC CUSTOMER ID
-customer.get('/:customer_id', async (req, res) => {});
+customers.get('/', async (req, res) => {
+    try {
+        const foundCustomers = await Customer.findAll({
+          where: {
+            firstName: {
+              [Op.like]: `%${req.query.firstName ? req.query.firstName : ''}%`,
+            },
+          },
+        })
+         res.status(200).json(foundCustomers)
+    }catch (error) {
+        res.status(500).json(error)
+    }
+});
 
-//CREATE A CUSTOMER ID
-customer.post('/', async (req, res) => {});
 
-//UPDATE A CUSTOMER ID
-customer.put('/:id', async (req, res) => {});
 
-// DELETE A CUSTOMER ID
-customer.delete('/:id', async (req, res) => {});
+// //FIND A SPECIFIC CUSTOMER ID
+// customer.get('/:customer_id', async (req, res) => {});
+
+// //CREATE A CUSTOMER ID
+// customer.post('/', async (req, res) => {});
+
+// //UPDATE A CUSTOMER ID
+// customer.put('/:id', async (req, res) => {});
+
+// // DELETE A CUSTOMER ID
+// customer.delete('/:id', async (req, res) => {});
 
 //EXPORT A CUSTOMER ID
-module.exports = customer;
+module.exports = customers;
