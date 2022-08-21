@@ -1,31 +1,44 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
+const { Sequelize } = require('sequelize');
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config();
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.set('view engine', 'jsx');
 
 // ROOT
 app.get('/', (req, res) => {
+	console.log(req.params);
 	res.status(200).json({
 		message: 'Now entering the Milestone Glasses API',
 	});
+	res.render('/inventory');
 });
+
+const inventoryController = require('./controllers/inventory_controller');
+app.use('/inventory', inventoryController);
 
 // CONTROLLERS
 const customerController = require('./controllers/customer_controller');
 app.use('/customer', customerController);
 
-const inventoryController = require('./controllers/inventory_controller');
-app.use('/inventory', inventoryController);
-
 const reviewController = require('./controllers/review_controller');
 app.use('/review', reviewController);
 
-const transactionController = require('./controllers/transaction_controller');
-app.use('/transaction', transactionController);
+const categoryController = require('./controllers/category_controller');
+app.use('/category', categoryController);
+
+// const transactionController = require('./controllers/transaction_Controller');
+// app.use('/transaction', transactionController);
+
+//404 page
+app.get('*', (req, res) => {
+	res.send('404');
+});
 
 // LISTEN
 app.listen(process.env.PORT, () => {

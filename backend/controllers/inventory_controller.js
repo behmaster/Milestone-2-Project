@@ -1,29 +1,70 @@
 //DEPENDENCIES
-const inventory = require('express').Router();
+const inventories = require('express').Router();
 const db = require('../models');
-const { Inventory, Customer, Review, Transaction } = db;
+const { Inventory } = db;
 const { Op } = require('sequelize');
 
-//GET INVENTORY IDs
-inventory.get('/', async (req, res) => {
-	res.render('');
+//FIND ALL CUSTOMER IDS
+inventories.get('/', async (req, res) => {
+	try {
+		const foundInventories = await Inventory.findAll({
+			where: {
+				category: {
+					[Op.like]: `%${req.query.category ? req.query.category : ''}%`,
+				},
+			},
+		});
+		res.status(200).json(foundInventories);
+	} catch (error) {
+		res.status(500).json(error);
+	}
 });
 
-//FIND A SPECIFIC ITEM
+// inventories.get('/:category', async (req, res) => {
+// 	try {
+// 		const foundInventory = await Inventory.findAll({
+// 			where: { category: req.params.category },
+// 		});
+// 		res.status(200).json(foundInventory);
+// 	} catch (error) {
+// 		res.status(500).json(error);
+// 	}
+// });
 
-inventory.get('/:product_id', async (req, res) => {
-	console.log(req.params);
-	res.send('product id route');
+inventories.get('/:model', async (req, res) => {
+	try {
+		const foundInventory = await Inventory.findOne({
+			where: { model: req.params.model },
+		});
+		res.status(200).json(foundInventory);
+	} catch (error) {
+		res.status(500).json(error);
+	}
 });
 
-//CREATE AN ITEM IN THE INVENTORY
-inventory.post('/', async (req, res) => {});
+module.exports = inventories;
 
-//UPDATE AN ITEM IN THE INVENTORY
-inventory.put('/:id', async (req, res) => {});
+// //All products route
+// inventory.get('/', (req, res) => {
+// 	console.log(req.params);
+// 	res.render('', {
+// 		product_id: 1,
+// 	});
+// });
 
-// DELETE AN ITEM
-inventory.delete('/:id', async (req, res) => {});
+// //  Men's Glasses Store Page
+// inventory.get('/mens', (req, res) => {
+// 	console.log(req.params);
+// 	res.render('inventory', {
+// 		product_id: 1,
+// 		title: `Men's Glasses`,
+// 	});
+// });
+
+// //FIND A SPECIFIC ITEM
+// inventory.get('/:product_id', async (req, res) => {
+// 	console.log(req.params);
+// 	res.send('product id route');
+// });
 
 //EXPORT AN ITEM
-module.exports = inventory;
