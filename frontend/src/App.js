@@ -16,7 +16,7 @@ const App = () => {
       {/* bootstrap padding y axis 3 */}
       <main className='py-3'>
         <Container>
-         <HomeScreen />  
+         <ProductView />  
         </Container>
       </main>
 

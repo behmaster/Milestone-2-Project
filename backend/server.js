@@ -29,8 +29,8 @@ app.use('/inventory', inventoryController);
 const reviewController = require('./controllers/review_controller');
 app.use('/review', reviewController);
 
-// const transactionController = require('./controllers/transaction_Controller');
-// app.use('/transaction', transactionController);
+const categoryController = require('./controllers/category_controller');
+app.use('/category', categoryController);
 
 app.get('*', (req, res) => {
   res.send('404')
