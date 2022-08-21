@@ -31,6 +31,8 @@ app.use('/review', reviewController);
 const categoryController = require('./controllers/category_controller');
 app.use('/category', categoryController);
 
+const inventoryController = require('./controllers/inventory_controller');
+app.use('/inventory', inventoryController);
 // const transactionController = require('./controllers/transaction_Controller');
 // app.use('/transaction', transactionController);
 
