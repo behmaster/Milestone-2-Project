@@ -24,7 +24,7 @@ const customerController = require('./controllers/customer_controller');
 app.use('/customer', customerController);
 
 const inventoryController = require('./controllers/inventory_controller');
-app.use('/inventory', inventoryController);
+app.use('/api/products', inventoryController);
 
 const reviewController = require('./controllers/review_controller');
 app.use('/review', reviewController);

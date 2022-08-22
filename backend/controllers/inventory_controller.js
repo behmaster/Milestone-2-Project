@@ -4,7 +4,6 @@ const db = require('../models');
 const { Inventory} = db;
 const { Op } = require('sequelize');
 
-
 inventories.get('/', async (req, res) => {
   try {
     const foundInventories = await Inventory.findAll({

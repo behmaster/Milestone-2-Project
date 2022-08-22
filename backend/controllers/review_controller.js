@@ -25,6 +25,23 @@ console.log(result)
   }
 })
 
+review.get('/', async (req, res) => {
+  let result = String(req.query.rating_result)
+  console.log(result)
+    try {
+      const foundReview = await Review.findAll({
+      //   where: {
+      //         rating_result: {
+      //       [Op.like]: `%${req.query.rating_result ? req.query.rating_result : ''}%`,
+  
+      //     },
+      //   },
+      })
+      res.status(200).json(foundReview)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  })
 // review.get('/', async (req, res) => {});
 
 // //FIND A SPECIFIC CUSTOMER REVIEW
