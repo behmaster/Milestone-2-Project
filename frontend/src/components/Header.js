@@ -1,5 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import Mens from './_Mens'
+import HomeScreen from '../screens/HomeScreen'
 
 const Header = () => {
   return (
@@ -10,17 +12,15 @@ const Header = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <Nav.Link href='/home'>Home</Nav.Link>
-              <Nav.Link href='http://localhost:3005/category/Mens'>
-                Men's
-              </Nav.Link>
-              <Nav.Link href='http://localhost:3005/category/Womens'>
+              <Nav.Link to="/">Home</Nav.Link>
+              <Nav.Link to="/Mens" > Men's </Nav.Link>
+              <Nav.Link to="/Womens">
                 Women's
               </Nav.Link>
-              <Nav.Link href='http://localhost:3005/category/Childrens'>
+              <Nav.Link to="/Childrens">
                 Children's
               </Nav.Link>
-              <Nav.Link href='/sunglasses'>Sunglasses</Nav.Link>
+              <Nav.Link to='/sunglasses'>Sunglasses</Nav.Link>
             </Nav>
             <Nav className='ms-auto'>
               {/* importing icons from font awesome, import was saved in index.html */}
